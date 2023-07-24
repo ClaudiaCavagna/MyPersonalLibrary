@@ -1,0 +1,39 @@
+@import 'bootstrap';
+
+body{
+    font-family: 'Libre Franklin', sans-serif;
+    background-color: rgb(188, 164, 114);
+}
+
+.position-img{
+    top: 300px;
+    left: 500px;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: brown;
+}
+
+a:hover{
+    font-weight: bold;
+    color: brown;
+}
+
+.btn-color{
+    background-color: brown;
+    color: white;
+}
+.btn-color:hover{
+    background-color: white;
+    color: brown;
+}
+
+li{
+    list-style: none;
+}
+
+.text-color{
+    color: brown;
+}
