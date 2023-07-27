@@ -3,7 +3,7 @@
         <h1 class="text-decoration-underline mb-3">I tuoi libri</h1>
         @foreach ($books as $book)
         <a href="{{route('books.show', ['book'=>$book['id']])}}">
-            <li>{{$book['title']}} - {{$book['author']}}</li>
+            <li>{{$book['title']}} - {{$book->author}}</li>
         </a>
         @endforeach
     </div>

@@ -20,6 +20,15 @@
                     <input type="number" class="form-control" id="pages" name="pages" value="{{old('pages')}}">
                 </div>
                 <div class="mb-3">
+                    <label class="form-check-label" for="category_id">Genere</label>
+                    <select class="form-select" aria-label="Default select example" name="category_id" value="{{old('category_id')}}">
+                        <option selected>Seleziona un genere...</option>
+                        @foreach($categories as $category)
+                        <option value="{{$category->id}}">{{ucfirst($category->name)}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-3">
                     <label class="form-check-label" for="image">Immagine di copertina</label>
                     <input type="file" class="form-control" id="image" name="image">
                 </div>
