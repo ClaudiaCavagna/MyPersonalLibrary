@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Author;
 use App\Models\Category;
 use App\Http\Requests\BookRequest;
 
@@ -11,11 +12,13 @@ class BookController extends Controller
 {
     public function index(){
         $books = Book::all();
-        return view('index', ['books'=>$books]);
+        return view('books.index', ['books'=>$books]);
     }
 
     public function create(){
-        return view('create');
+        $authors = Author::all();
+        $categories = Category::all();
+        return view('books.create', compact('authors', 'categories'));
     }
 
     public function store(BookRequest $request){
@@ -28,20 +31,20 @@ class BookController extends Controller
         
         $data = Book::create([
             'title'=>$request->title,
-            'author'=>$request->author,
+            'author_id'=>$request->author_id,
             'year'=>$request->year,
             'pages'=>$request->pages,
             'image'=>$path_image, 
         ]);
 
         $data->categories()->attach($request->categories);
-        return redirect()->route('index')->with('success', 'Libro inserito con successo');
+        return redirect()->route('books.index')->with('success', 'Libro inserito con successo');
     }
 
     public function show($book){
         $book = Book::findOrFail($book);
 
         $category = Category::all();
-        return view('show', ['book'=>$book, 'category'=>$category]);
+        return view('books.show', ['book'=>$book, 'category'=>$category]);
     }
 }

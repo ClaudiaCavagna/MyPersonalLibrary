@@ -24,7 +24,6 @@ class BookRequest extends FormRequest
     {
         return [ 
             "title" => "required|string",
-            "author" => "required|string",
             "pages" => "required|numeric",
             "year" => "required|numeric",
         ];
@@ -34,8 +33,6 @@ class BookRequest extends FormRequest
         return [
             'title.required'=>"Il titolo è obbligatorio",
             'title.string'=>"Il titolo deve essere di tipo stringa",
-            'author.required'=>"L'autore è obbligatorio",
-            'author.string'=>"L'autore deve essere di tipo stringa",
             'pages.required'=>"Il numero di pagine è obbligatorio",
             'pages.numeric'=>"Il numero di pagine deve essere di tipo numerico",
             'year.required'=>"L'anno di pubblicazione è obbligatorio",

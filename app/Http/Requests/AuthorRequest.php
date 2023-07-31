@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoryRequest extends FormRequest
+class AuthorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,15 +22,18 @@ class CategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string'
+            "name"=>"required|string",
+            "surname"=>"required|string",
         ];
     }
 
     public function message()
     {
         return [
-            'name.required' => 'La categoria è obbligatoria',
-            'name.string' => 'La categoria deve essere di tipo stringa',
+            "name.required"=>"Il nome è obbligatorio",
+            "name.string"=>"Il nome deve essere di tipo stringa",
+            "surname.required"=>"Il cognome è obbligatorio",
+            "surname.string"=>"Il cognome deve essere di tipo stringa",
         ];
     }
 }

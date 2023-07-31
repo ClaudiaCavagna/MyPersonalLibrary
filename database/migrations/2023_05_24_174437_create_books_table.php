@@ -16,9 +16,11 @@ return new class extends Migration
             $table->id();
             $table->string('title', 150);
             $table->integer('pages');
-            $table->string('author');
             $table->integer('year');
             $table->string('image')->nullable();
+            $table->longText('description')->nullable();
+            $table->unsignedBigInteger('author_id');
+            $table->foreign('author_id')->references('id')->on('authors');
             $table->timestamps();        
         });
     }
