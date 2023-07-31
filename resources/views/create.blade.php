@@ -20,13 +20,22 @@
                     <input type="number" class="form-control" id="pages" name="pages" value="{{old('pages')}}">
                 </div>
                 <div class="mb-3">
-                    <label class="form-check-label" for="category_id">Genere</label>
-                    <select class="form-select" aria-label="Default select example" name="category_id" value="{{old('category_id')}}">
+                    <label class="form-check-label">Genere</label>
+                    {{-- <select class="form-select" aria-label="Default select example" name="category_id" value="{{old('category_id')}}">
                         <option selected>Seleziona un genere...</option>
                         @foreach($categories as $category)
                         <option value="{{$category->id}}">{{ucfirst($category->name)}}</option>
                         @endforeach
-                    </select>
+                    </select> --}}
+                    @foreach ($categories as $category)
+                    <div class="form-check">
+                        <input class="form-check-input" name="categories[]" type="checkbox" value="{{$category->id}}" id="categories-{{$category->id}}">
+                        <label class="form-check-label" for="categories-{{$category->id}}">
+                            {{$category->name}}
+                        </label>
+                    </div>
+                    @endforeach
+                    
                 </div>
                 <div class="mb-3">
                     <label class="form-check-label" for="image">Immagine di copertina</label>

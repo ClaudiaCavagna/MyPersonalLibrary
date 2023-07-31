@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PublicController;
 
 /*
@@ -17,7 +18,11 @@ use App\Http\Controllers\PublicController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
+//Libri
 Route::get('/libri', [BookController::class, 'index'])->name('index');
 Route::get('/libri/crea', [BookController::class, 'create'])->name('books.create');
 Route::post('/libri/salva', [BookController::class, 'store'])->name('books.store');
 Route::get('/libri/{book}/dettagli', [BookController::class, 'show'])->name('books.show');
+
+//Categorie
+Route::post('/categorie/salva', [CategoryController::class, 'store'])->name('categories.store');

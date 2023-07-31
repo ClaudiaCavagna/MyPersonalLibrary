@@ -19,8 +19,6 @@ return new class extends Migration
             $table->string('author');
             $table->integer('year');
             $table->string('image')->nullable();
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();        
         });
     }

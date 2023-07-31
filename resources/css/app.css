@@ -5,12 +5,6 @@ body{
     background-color: rgb(188, 164, 114);
 }
 
-.position-img{
-    top: 300px;
-    left: 500px;
-    text-align: center;
-}
-
 a{
     text-decoration: none;
     color: brown;
@@ -36,4 +30,10 @@ li{
 
 .text-color{
     color: brown;
+}
+
+header{
+    background-image: url('https://wallpaperaccess.com/full/3876048.jpg');
+    background-size: cover;
+    min-height: 84vh;
 }
