@@ -9,43 +9,31 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     @auth
                     <li class="nav-item icons">
-                        <a class="nav-link" href="{{route('books.index')}}">
+                        <a class="nav-link @if (Route::CurrentRouteName()=='books.index') active @endif" href="{{route('books.index')}}">
                             Libri
                         </a>
                     </li>
                     <li class="nav-item icons">
-                        <a class="nav-link" href="{{route('books.create')}}">
+                        <a class="nav-link @if (Route::CurrentRouteName()=='books.create') active @endif" href="{{route('books.create')}}">
                             <i class="bi bi-plus-circle-fill"></i>
                         </a>
                     </li>
                     <li class="nav-item icons">
-                        <a class="nav-link" href="{{route('authors.index')}}">
+                        <a class="nav-link @if (Route::CurrentRouteName()=='authors.index') active @endif" href="{{route('authors.index')}}">
                             Autori
                         </a>
                     </li>
                     <li class="nav-item icons">
-                        <a class="nav-link" href="{{route('authors.create')}}">
+                        <a class="nav-link @if (Route::CurrentRouteName()=='authors.create') active @endif" href="{{route('authors.create')}}">
                             <i class="bi bi-plus-circle-fill"></i>
                         </a>
                     </li>
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Benvenuto {{Auth::user()->name}}
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Profilo</a></li>
-                            <hr>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
-                        </ul>
-                    </div>
-                    @else
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Benvenuto utente
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{route('login')}}">Accedi</a></li>
-                            <li><a class="dropdown-item" href="{{route('register')}}">Registrati</a></li>
                             <hr>
                             <li>
                                 <a class="dropdown-item text-uppercase" href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
@@ -53,6 +41,21 @@
                             <form action="{{route('logout')}}" method="POST" id="form-logout" class="d-none">
                                 @csrf
                             </form>
+                        </ul>
+                    </div>
+                    @else
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Benvenuto utente
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item @if (Route::CurrentRouteName()=='login') active-dropdown @endif" href="{{route('login')}}">Accedi</a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a class="dropdown-item @if (Route::CurrentRouteName()=='register') active-dropdown @endif" href="{{route('register')}}">Registrati</a>
+                            </li>
                         </ul>
                     </div>
                     @endauth
