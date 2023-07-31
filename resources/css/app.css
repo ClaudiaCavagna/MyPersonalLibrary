@@ -3,8 +3,12 @@
 
 body{
     font-family: 'Libre Franklin', sans-serif;
-    background-color: rgb(188, 164, 114);
 }
+
+.color-light{
+    background-color: rgb(206, 195, 182);
+}
+
 
 a{
     text-decoration: none;
