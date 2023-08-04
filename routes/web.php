@@ -24,6 +24,9 @@ Route::get('/libri', [BookController::class, 'index'])->name('books.index');
 Route::get('/libri/crea', [BookController::class, 'create'])->name('books.create');
 Route::post('/libri/salva', [BookController::class, 'store'])->name('books.store');
 Route::get('/libri/{book}/dettagli', [BookController::class, 'show'])->name('books.show');
+Route::get('/libri/{book}/modifica', [BookController::class, 'edit'])->name('books.edit');
+Route::post('/libri/modifica/salva', [BookController::class, 'update'])->name('books.update');
+Route::delete('/libri/elimina', [BookController::class, 'destroy'])->name('books.destroy');
 
 //Categorie
 Route::post('/categorie/salva', [CategoryController::class, 'store'])->name('categories.store');

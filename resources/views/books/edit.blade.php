@@ -1,6 +1,6 @@
 <x-main>
     <div class="p-4 container mt-3 shadow text-center">
-        <h1 class="text-center text-color text-decoration-underline mt-3">Aggiungi libro</h1>
+        <h1 class="text-center text-color text-decoration-underline mt-3">Modifica libro</h1>
         <form action="{{route('books.store')}}" method="POST" enctype="multipart/form-data">
             @method('POST')
             @csrf

@@ -9,7 +9,7 @@
             <h3 class="text-color mb-4">{{$book->author->name}} {{$book->author->surname}}</h3>
             <p class="text-color">Anno di pubblicazione: {{$book->year}}</p>
             <p class="text-color">Pagine: {{$book->pages}}</p>
-            <p class="text-color">Genere:@foreach ($book->categories as $category) {{$category->name}} @endforeach</p>
+            <p class="text-color">Genere:@foreach ($book->categories as $category) {{ucfirst($category->name)}} @endforeach</p>
             </div>
         </div>
     </div>

@@ -27,7 +27,7 @@ class AuthorController extends Controller
             'nation'=>$request->nation
         ]);
 
-        return redirect()->route('authors.index')->with('success', 'Autore inserito con successo');
+        return redirect()->route('books.index')->with('success', 'Autore inserito con successo');
     }
 
 }
