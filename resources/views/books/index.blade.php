@@ -36,12 +36,16 @@
                                 </a>
                             </td>
                             <td>
-                                <a href="{{route('books.edit', ['book'=>$book->id])}}">
-                                    <i class="bi bi-pencil-square text-warning me-2"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="bi bi-trash3-fill text-danger ms-2"></i>
-                                </a>
+                                <form action="{{route('books.destroy', compact('book'))}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a href="{{route('books.edit', ['book'=>$book->id])}}" class="btn">
+                                        <i class="bi bi-pencil-square text-warning me-2"></i>
+                                    </a>
+                                    <button type="submit" class="btn">
+                                        <i class="bi bi-trash3-fill text-danger ms-2"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

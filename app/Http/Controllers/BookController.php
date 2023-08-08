@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth')->except('index', 'show');
@@ -96,11 +97,11 @@ class BookController extends Controller
             ->with('success', 'Libro eliminato correttamente');
     }
 
-    // public function destroy(Book $book)
-    // {
-    //     $book->categories()->detach();
-    //     $book->delete();
-    //     return redirect()->route('books.index')
-    //         ->with('success', 'Libro eliminato con successo');
-    // }
+    public function destroy(Book $book)
+    {
+        $book->categories()->detach();
+        $book->delete();
+        
+        return redirect()->route('books.index')->with('success', 'Libro eliminato con successo');
+    }
 }

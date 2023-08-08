@@ -17,7 +17,7 @@
                 <div class="w-75 ">
                     <div class="mb-3">
                         <label for="title" class="form-label text-color">Titolo</label>
-                        <input type="text" class="form-control" id="title" name="title" value="{{old('title')}}">
+                        <input type="text" class="form-control" id="title" name="title" value="{{$book->title}}">
                         @error('title')
                             <span class="text-danger">
                                 {{$message}}
@@ -29,7 +29,7 @@
                         <select class="form-select" aria-label="author_id" name="author_id">
                             <option selected>Seleziona un autore...</option>
                             @foreach($authors as $author)
-                            <option value="{{$author->id}}">{{$author->name}} {{$author->surname}}</option>
+                            <option value="{{$author->id}}" @if(isset($book->author)) selected @endif>{{$author->name}} {{$author->surname}}</option>
                             @endforeach
                         </select>
                         @error('author_id')
@@ -40,7 +40,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-check-label text-color" for="year">Anno di pubblicazione</label>
-                        <input type="number" class="form-control" id="year" name="year" value="{{old('year')}}">
+                        <input type="number" class="form-control" id="year" name="year" value="{{$book->year}}">
                         @error('year')
                             <span class="text-danger">
                                 {{$message}}
@@ -49,7 +49,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-check-label text-color" for="pages">Numero di pagine</label>
-                        <input type="number" class="form-control" id="pages" name="pages" value="{{old('pages')}}">
+                        <input type="number" class="form-control" id="pages" name="pages" value="{{$book->pages}}">
                         @error('pages')
                             <span class="text-danger">
                                 {{$message}}
@@ -60,7 +60,7 @@
                         <label class="form-check-label text-color">Genere</label>
                         @foreach ($categories as $category)
                         <div class="form-check">
-                            <input class="form-check-input" name="categories[]" type="checkbox" value="{{$category->id}}" id="categories-{{$category->id}}">
+                            <input class="form-check-input" name="categories[]" type="checkbox" value="{{$category->id}}" id="categories-{{$category->id}}" @if(isset($book->category->id)) checked @endif>
                             <label class="form-check-label" for="categories-{{$category->id}}">
                                 {{ucfirst($category->name)}}
                             </label>

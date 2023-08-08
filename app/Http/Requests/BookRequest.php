@@ -40,4 +40,6 @@ class BookRequest extends FormRequest
             'image'=>'mimes:jpg,bmp,jpeg,webp',
         ];
     }
+
+    
 }
